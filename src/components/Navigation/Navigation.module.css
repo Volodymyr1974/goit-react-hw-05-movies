@@ -1,0 +1,15 @@
+.current {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.active {
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 10px;
+
+  text-decoration: none;
+  color: #e82e38;
+}
