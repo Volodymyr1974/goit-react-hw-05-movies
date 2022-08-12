@@ -6,14 +6,14 @@ export default function Navigation() {
         <nav>
             <NavLink to="/"
                 className={({ isActive }) =>
-                    isActive ? styles.active : styles.current
+                    isActive ? styles.active : styles.navlink
                 }
             >
                 Home
             </NavLink>
             <NavLink to="/movies"
                 className={({ isActive }) =>
-                    isActive ? styles.active : styles.current
+                    isActive ? styles.active : styles.navlink
                 }
 
             >
