@@ -39,44 +39,43 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 const API_KEY = '99f1057047bac17f2e8e4b1a5230a5c2';
 const PARAM = {
-    trending: 'trending/all/day',
+    trending: 'trending/movie/day',
     search: 'search/movie',
     movieID: 'movie/',
     reviews: '/reviews',
     credits: '/credits',
 };
-const getTrandingFilms = async () => {
-    const { data } = await axios.get(`/${PARAM.trending}?api_key=${API_KEY}`);
-    return data;
+export async function getTrandingFilms() {
+    const response = await axios.get(`/${PARAM.trending}?api_key=${API_KEY}`);
+    return response.data;
 };
-const getMovieId = async id => {
-    const { data } = await axios.get(
-        `/${PARAM.movieID}${id}?api_key=${API_KEY}&language=en-US`
+export async function getMovieId(id) {
+    const response = await axios.get(`/${PARAM.movieID}${id}?api_key=${API_KEY}&language=en-US`
     );
-    return data;
+    return response.data;
 };
-const getMovieIdReviews = async id => {
+export async function getMovieIdReviews(id) {
     const { data } = await axios.get(
         `/${PARAM.movieID}${id}${PARAM.reviews}?api_key=${API_KEY}&language=en-US`
     );
     return data;
 };
-const getMovieIdCredits = async id => {
+export async function getMovieIdCredits(id) {
     const { data } = await axios.get(
         `/${PARAM.movieID}${id}${PARAM.credits}?api_key=${API_KEY}&language=en-US`
     );
     return data;
 };
-const getSearchMovies = async query => {
+export async function getSearchMovies(query) {
     const { data } = await axios.get(
         `/${PARAM.search}?api_key=${API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`
     );
     return data;
 };
-export {
-    getTrandingFilms,
-    getMovieId,
-    getMovieIdReviews,
-    getMovieIdCredits,
-    getSearchMovies,
-};
+// export {
+//     getTrandingFilms,
+//     getMovieId,
+//     getMovieIdReviews,
+//     getMovieIdCredits,
+//     getSearchMovies,
+// };
