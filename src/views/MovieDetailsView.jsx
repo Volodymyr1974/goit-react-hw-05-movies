@@ -2,6 +2,8 @@ import * as serviceApi from '../services/Api';
 import { useEffect, useState } from 'react';
 import { useParams, Outlet, useLocation } from 'react-router-dom';
 import CardMovieInfo from '../components/CardMovieInfo/CardMovieInfo';
+import AdditionalInfo from '../components/AdditionalInfo/AdditionalInfo';
+import ClickBack from '../components/ClickBack/ClickBack';
 
 
 export default function MovieDetailsView() {
@@ -28,12 +30,14 @@ export default function MovieDetailsView() {
         // showFilmDetails();
     }, [movieId]);
     console.log(movieDetails);
-
+    const location = useLocation();
+    console.log(location);
     return (
 
         <>
             {movieDetails && (
                 <>
+                    <ClickBack />
                     <CardMovieInfo
                         poster={movieDetails.poster_path}
                         title={movieDetails.original_title}
@@ -44,9 +48,11 @@ export default function MovieDetailsView() {
 
 
                 </>
-            )
-            }
-
+            )}
+            <AdditionalInfo location={location.state?.from ?? '/Home'} />
+            {/* <Suspense fallback={<div>Loading..</div>}> */}
+            <Outlet />
+            {/* </Suspense> */}
         </>
 
 

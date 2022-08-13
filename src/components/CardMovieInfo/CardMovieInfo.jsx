@@ -10,7 +10,7 @@ export default function CardMovieInfo({
 }) {
 
     const src = poster
-        ? `https://image.tmdb.org/t/p/w300${poster}`
+        ? `https://image.tmdb.org/t/p/w200${poster}`
         : 'https://nuft.edu.ua/assets/images/people/no-image.jpg';
     return (
         <div >

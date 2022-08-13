@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom';
 import HomeView from "views/HomeView";
 import MoviesView from "views/MoviesView";
 import MovieDetailsView from 'views/MovieDetailsView';
+import Cast from 'views/Cast';
+import Reviews from 'views/Reviews';
 
 
 export function App() {
@@ -16,9 +18,10 @@ export function App() {
         <Route path="/" element={<HomeView />} />
         <Route path="movies" element={<MoviesView />} />
         <Route path="movies/:movieId" element={<MovieDetailsView />}>
-          {/* <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} /> */}
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );
