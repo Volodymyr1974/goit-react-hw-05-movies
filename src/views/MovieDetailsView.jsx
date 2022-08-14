@@ -1,33 +1,29 @@
 import * as serviceApi from '../services/Api';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useParams, Outlet, useLocation } from 'react-router-dom';
 import CardMovieInfo from '../components/CardMovieInfo/CardMovieInfo';
 import AdditionalInfo from '../components/AdditionalInfo/AdditionalInfo';
 import ClickBack from '../components/ClickBack/ClickBack';
 
-
 export default function MovieDetailsView() {
     const [movieDetails, setmMovieDetails] = useState(null);
-
     const { movieId } = useParams();
+
     useEffect(() => {
         if (movieId === undefined) {
             return;
         }
-
         serviceApi.getMovieId(movieId).then(r => setmMovieDetails(r));
-
-
     }, [movieId]);
-    console.log(movieDetails);
-    const location = useLocation();
-    console.log(location);
-    return (
 
+    const location = useLocation();
+    const backLinkHref = location.state?.from ?? "/";
+
+    return (
         <>
             {movieDetails && (
                 <>
-                    <ClickBack />
+                    <ClickBack onGoBack={backLinkHref} />
                     <CardMovieInfo
                         poster={movieDetails.poster_path}
                         title={movieDetails.original_title}
@@ -38,12 +34,10 @@ export default function MovieDetailsView() {
 
                 </>
             )}
-            <AdditionalInfo location={location?.state?.from ?? '/Home'} />
-            {/* <Suspense fallback={<div>Loading..</div>}> */}
-            <Outlet />
-            {/* </Suspense> */}
+            <AdditionalInfo location={backLinkHref} />
+            <Suspense fallback={<div>Завантажуємо</div>}>
+                <Outlet />
+            </Suspense>
         </>
-
-
     )
 }

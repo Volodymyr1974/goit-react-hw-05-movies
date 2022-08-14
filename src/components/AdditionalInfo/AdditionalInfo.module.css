@@ -1,4 +1,10 @@
-.additionalWrap {
-  padding: 20px;
+.additional {
+  padding: 5px;
   border-bottom: 1px solid #9c9fa1;
+}
+.subtitle {
+  margin: 0;
+}
+.additional_list {
+  margin: 0;
 }

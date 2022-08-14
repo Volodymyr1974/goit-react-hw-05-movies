@@ -1,41 +1,4 @@
 import axios from 'axios';
-
-
-
-
-// export async function getTrandingFilms() {
-//     const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/day';
-
-//     return await axios.get(`${BASE_URL}?api_key=99f1057047bac17f2e8e4b1a5230a5c2`);
-// }
-
-// export async function getmovieSearching(searchQuery) {
-//     const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
-
-//     return await axios.get(
-//         `${BASE_URL}?api_key=99f1057047bac17f2e8e4b1a5230a5c2&query=${searchQuery}&language=en-US`
-//     );
-// }
-
-// export async function getMovieDetails(id) {
-//     const BASE_URL = 'https://api.themoviedb.org/3/movie/';
-
-//     return await axios.get(`${BASE_URL}${id}?api_key=99f1057047bac17f2e8e4b1a5230a5c2&language=en-US`);
-// }
-
-// export async function getCastDetails(id) {
-//     const BASE_URL = 'https://api.themoviedb.org/3/movie/';
-
-//     return await axios.get(`${BASE_URL}${id}/credits?api_key=99f1057047bac17f2e8e4b1a5230a5c2&language=en-US`);
-// }
-
-// export async function getMovieReviews(id) {
-//     const BASE_URL = 'https://api.themoviedb.org/3/movie/';
-
-//     return await axios.get(`${BASE_URL}${id}/reviews?api_key=99f1057047bac17f2e8e4b1a5230a5c2&language=en-US`);
-// }
-
-
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 const API_KEY = '99f1057047bac17f2e8e4b1a5230a5c2';
 const PARAM = {
@@ -72,10 +35,3 @@ export async function getSearchMovies(query) {
     );
     return response.data;
 };
-// export {
-//     getTrandingFilms,
-//     getMovieId,
-//     getMovieIdReviews,
-//     getMovieIdCredits,
-//     getSearchMovies,
-// };

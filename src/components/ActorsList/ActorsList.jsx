@@ -1,17 +1,16 @@
 import PropTypes from 'prop-types';
-export default function ActorsList({ actorName, character, photo }) {
+import styles from './ActorsList.module.css'
 
+export default function ActorsList({ actorName, character, photo }) {
     const src = photo
         ? `https://image.tmdb.org/t/p/w200${photo}`
         : 'https://nuft.edu.ua/assets/images/people/no-image.jpg';
 
     return (
         <li>
-            <img
-                src={src} width='80' alt="" />
-
-            <p>{actorName}</p>
-            <p> Character: {character}</p>
+            <img src={src} width='80' alt="" />
+            <p className={styles.subtitle}>{actorName}</p>
+            <p className={styles.subtitle}> Character: {character}</p>
         </li>
     );
 }

@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 import styles from './ClickBack.module.css';
+import PropTypes from 'prop-types';
 
-export default function ClickBack() {
-    const location = useLocation();
-    console.log(location);
+export default function ClickBack({ onGoBack }) {
+
     return (
         <Link
             className={styles.button}
-            to={location?.state?.from ?? '/'}>
+            to={onGoBack}>
             {"<--"} Go back
         </Link>
     );
+}
+ClickBack.propTypes = {
+    onGoBack: PropTypes.object.isRequired,
 }

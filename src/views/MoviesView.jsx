@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import * as serviceApi from '../services/Api';
 import { useSearchParams } from 'react-router-dom';
 import Notiflix from 'notiflix';
-import { Link } from 'react-router-dom';
-
+import MoviesList from 'components/MoviesList/MoviesList';
 
 
 export default function MoviesView() {
@@ -18,7 +17,6 @@ export default function MoviesView() {
                 return;
             }
             const { results } = await serviceApi.getSearchMovies(query)
-            console.log(results);
 
             setFoundMovies(results)
             if (results.length === 0) {
@@ -27,31 +25,16 @@ export default function MoviesView() {
                 );
             }
         };
-
         searchMovie();
     }, [query]);
 
-    console.log(foundMovies);
-    console.log(query);
-    const searchQuery = data => {
-        setSearch({ query: data });
+    const searchQuery = query => {
+        setSearch({ query });
     };
     return (
         <>
             <SearchBar value={query} onSubmit={searchQuery} />
-            {foundMovies &&
-                <ul>
-                    {foundMovies.map(movie => (
-                        <li key={movie.id}>
-                            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
-                        </li>
-                    ))}
-                </ul>}
-
+            {foundMovies && <MoviesList filmsList={foundMovies} />}
         </>
-
-
-
-
     )
 }

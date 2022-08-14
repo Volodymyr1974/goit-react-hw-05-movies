@@ -1,7 +1,6 @@
 import styles from './CardMovieInfo.module.css';
 import PropTypes from 'prop-types';
 export default function CardMovieInfo({
-    id,
     title,
     overview,
     score,
@@ -9,14 +8,13 @@ export default function CardMovieInfo({
     genres = [],
     dateRelis,
 }) {
-
     const src = poster
-        ? `https://image.tmdb.org/t/p/w200${poster}`
+        ? `https://image.tmdb.org/t/p/w300${poster}`
         : 'https://nuft.edu.ua/assets/images/people/no-image.jpg';
     return (
         <div className={styles.filmInfo}>
             <div className={styles.poster}>
-                <img src={src} alt="" />
+                <img src={src} width='250' alt="" />
             </div>
             <div>
                 <h2>
@@ -35,7 +33,7 @@ CardMovieInfo.propTypes = {
     title: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
     score: PropTypes.number.isRequired,
-    poster: PropTypes.string.isRequired,
+    poster: PropTypes.string,
     genres: PropTypes.array.isRequired,
     dateRelis: PropTypes.string.isRequired,
 };

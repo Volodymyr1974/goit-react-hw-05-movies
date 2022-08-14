@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import style from './Searchbar.module.css';
+import style from './SearchBar.module.css';
 import PropTypes from 'prop-types';
 // import { ImSearch } from 'react-icons/im';
 import Notiflix from 'notiflix';
@@ -22,12 +22,12 @@ export default function SearchBar({ onSubmit }) {
     };
     return (
         <form
-            // className={style.SearchForm}
+            className={style.SearchForm}
             onSubmit={searchSubmit}>
 
 
             <input
-                // className={style.SearchForm_input}
+                className={style.SearchForm_input}
                 type="text"
                 autoComplete="off"
                 autoFocus
@@ -35,7 +35,7 @@ export default function SearchBar({ onSubmit }) {
 
             />
             <button type="submit"
-            // className={style.SearchForm_button}
+                className={style.SearchForm_button}
             >
 
 

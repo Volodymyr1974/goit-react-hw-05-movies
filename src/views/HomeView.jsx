@@ -7,11 +7,9 @@ export default function HomeView() {
     useEffect(() => {
         serviceApi.getTrandingFilms().then(r => setMovies(r.results));
     }, []);
-    console.log(movies);
+
     return (
-
         <><h1>Trendind today</h1>
-
             {movies &&
                 <ul>
                     {movies.map(movie => (
@@ -20,7 +18,6 @@ export default function HomeView() {
                         </li>
                     ))}
                 </ul>}
-
         </>
 
 
