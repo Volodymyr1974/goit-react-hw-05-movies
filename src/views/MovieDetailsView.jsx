@@ -8,8 +8,7 @@ import ClickBack from '../components/ClickBack/ClickBack';
 
 export default function MovieDetailsView() {
     const [movieDetails, setmMovieDetails] = useState(null);
-    // const [genres, setGenres] = useState([]);
-    // const [poster, setPoster] = useState('');
+
     const { movieId } = useParams();
     useEffect(() => {
         if (movieId === undefined) {
@@ -18,16 +17,7 @@ export default function MovieDetailsView() {
 
         serviceApi.getMovieId(movieId).then(r => setmMovieDetails(r));
 
-        // async function showFilmDetails() {
-        //     try {
-        //         const { data } = await getMovieDetails(movieId);
 
-        //         setmMvieDetails(data);
-        //         setPoster(data.poster_path);
-        //         setGenres(data.genres);
-        //     } catch (error) { }
-        // }
-        // showFilmDetails();
     }, [movieId]);
     console.log(movieDetails);
     const location = useLocation();
@@ -46,10 +36,9 @@ export default function MovieDetailsView() {
                         genres={movieDetails.genres}
                         dateRelis={movieDetails.release_date.slice(0, 4)} />
 
-
                 </>
             )}
-            <AdditionalInfo location={location.state?.from ?? '/Home'} />
+            <AdditionalInfo location={location?.state?.from ?? '/Home'} />
             {/* <Suspense fallback={<div>Loading..</div>}> */}
             <Outlet />
             {/* </Suspense> */}

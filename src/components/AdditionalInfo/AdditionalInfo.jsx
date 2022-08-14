@@ -1,16 +1,17 @@
-
+import styles from './AdditionalInfo.module.css';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function AdditionalInfo({ location }) {
     return (
         <div
-        // className={styles.additionalWrap}
+            className={styles.additionalWrap}
         >
             <h2>Additional Information</h2>
             <ul
-            // className={styles.additionalLinkWrap}
+
             ><li><Link
-                // className={styles.additionalLink}
+
                 to="cast"
                 state={{ from: location }}
             >
@@ -18,7 +19,7 @@ export default function AdditionalInfo({ location }) {
             </Link>
                 </li>
                 <li><Link
-                    // className={styles.additionalLink}
+
                     to="reviews"
                     state={{ from: location }}
                 >
@@ -29,3 +30,6 @@ export default function AdditionalInfo({ location }) {
         </div>
     );
 }
+AdditionalInfo.propTypes = {
+    location: PropTypes.object.isRequired,
+};

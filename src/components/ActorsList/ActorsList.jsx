@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 export default function ActorsList({ actorName, character, photo }) {
 
     const src = photo
@@ -7,7 +8,6 @@ export default function ActorsList({ actorName, character, photo }) {
     return (
         <li>
             <img
-                // className={styles.profileImg}
                 src={src} width='80' alt="" />
 
             <p>{actorName}</p>
@@ -15,3 +15,8 @@ export default function ActorsList({ actorName, character, photo }) {
         </li>
     );
 }
+ActorsList.propTypes = {
+    actorName: PropTypes.string.isRequired,
+    character: PropTypes.string.isRequired,
+    photo: PropTypes.string,
+};

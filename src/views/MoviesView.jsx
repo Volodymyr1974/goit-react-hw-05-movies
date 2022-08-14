@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 export default function MoviesView() {
-    const [foundMovies, setFoundMovies] = useState([]);
+    const [foundMovies, setFoundMovies] = useState(null);
     const [search, setSearch] = useSearchParams();
     const query = search.get('query') ?? '';
 
@@ -23,7 +23,7 @@ export default function MoviesView() {
             setFoundMovies(results)
             if (results.length === 0) {
                 return Notiflix.Notify.failure(
-                    'Sorry, there are no movies matching your search query. Please try again.'
+                    'Ух...Щось пішло не так, або дані за Вашим запитом відсутні'
                 );
             }
         };
@@ -32,9 +32,9 @@ export default function MoviesView() {
     }, [query]);
 
     console.log(foundMovies);
-
+    console.log(query);
     const searchQuery = data => {
-        setSearch({ query: data.toLowerCase().trim() });
+        setSearch({ query: data });
     };
     return (
         <>

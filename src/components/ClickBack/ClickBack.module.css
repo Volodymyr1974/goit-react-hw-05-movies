@@ -1,0 +1,9 @@
+.button {
+  text-decoration: none;
+  color: rgb(40, 64, 200);
+  border: 1mm ridge rgba(50, 135, 220, 0.37);
+  border-radius: 10px;
+  padding: 2px 5px;
+  margin-left: 20px;
+  display: inline-block;
+}

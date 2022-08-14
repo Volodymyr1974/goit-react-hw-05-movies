@@ -38,9 +38,8 @@ export default function SearchBar({ onSubmit }) {
             // className={style.SearchForm_button}
             >
 
-                <span
-                // className={style.button_label}
-                >Search</span>
+
+                Search
             </button>
         </form>
 
