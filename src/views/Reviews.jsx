@@ -5,25 +5,26 @@ import ReviewsList from '../components/ReviewsList/ReviewsList';
 
 export default function Reviews() {
     const { movieId } = useParams();
-    const [reviews, setReviews] = useState([])
+    const [reviews, setReviews] = useState(null)
 
     useEffect(() => {
         serviceApi.getMovieIdReviews(movieId).then(r => setReviews(r.results));
     }, [movieId])
-
+    if (!reviews) {
+        return;
+    }
     return (
         <>
-            {reviews.length !== 0 ? (
+            {reviews.length > 0 && (
                 <ul>
                     {reviews.map(({ id, author, content }) => {
                         return (
                             <ReviewsList key={id} author={author} review={content} />
                         );
                     })}
-                </ul>
-            ) :
-                ('We don`t have any Reviews for this movie')
-
+                </ul>)}
+            {reviews.length === 0 && (
+                <p>We don`t have any Reviews for this movie</p>)
             }
         </>
     )

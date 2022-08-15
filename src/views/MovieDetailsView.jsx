@@ -18,12 +18,13 @@ export default function MovieDetailsView() {
 
     const location = useLocation();
     const backLinkHref = location.state?.from ?? "/";
-
+    console.log(location);
     return (
         <>
             {movieDetails && (
                 <>
-                    <ClickBack onGoBack={backLinkHref} />
+                    <ClickBack
+                    />
                     <CardMovieInfo
                         poster={movieDetails.poster_path}
                         title={movieDetails.original_title}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default function AdditionalInfo({ location }) {
+    console.log(location);
     return (
         <div className={styles.additional}>
             <h2 className={styles.subtitle}>Additional Information</h2>

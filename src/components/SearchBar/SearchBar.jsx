@@ -6,8 +6,8 @@ import Notiflix from 'notiflix';
 
 
 
-export default function SearchBar({ onSubmit }) {
-    const [qwery, setQwery] = useState('');
+export default function SearchBar({ onSubmit, value }) {
+    const [qwery, setQwery] = useState(value);
 
     const searchInput = (e) => {
         setQwery(e.currentTarget.value.toLowerCase());
@@ -29,6 +29,7 @@ export default function SearchBar({ onSubmit }) {
             <input
                 className={style.SearchForm_input}
                 type="text"
+                value={qwery}
                 autoComplete="off"
                 autoFocus
                 onChange={searchInput}
